@@ -36,7 +36,7 @@ const myLogoPlugin = definePlugin({
 
 export default defineConfig({
   title: 'MARCD',
-  projectId: 'b47cp5ez',
+  projectId: 'u4hzo29a',
   dataset: 'production',
   plugins: [
     deskTool({
@@ -71,7 +71,7 @@ export default defineConfig({
     actions: (prev, context) => {
       const options = {
         dataset: 'production',
-        projectId: 'b47cp5ez',
+        projectId: 'u4hzo29a',
         useCdn: process.env.NODE_ENV === 'production',
         apiVersion: '2021-03-25'
       }

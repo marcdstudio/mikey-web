@@ -6,13 +6,12 @@ class MyDocument extends Document {
 
     return { ...initialProps }
   }
-  
 
   render() {
     return (
       <Html lang="en">
         <Head />
-        <body className="">           
+        <body className="bg-cream">
           <Main />
           <NextScript />
           <div id="drawer" />

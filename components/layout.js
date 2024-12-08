@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 
 import { isBrowser, useWindowSize } from '@lib/helpers'
 
+import Grid from '@components/grid'
+
 import HeadSEO from '@components/head-seo'
 import { m, AnimatePresence } from 'framer-motion'
 import { pageTransitionAnim, pageTransitionSpeed } from '@lib/animate'
@@ -95,13 +97,10 @@ const Layout = ({ site = {}, page = {}, schema, children }) => {
           />
         </>
       )}
-      <m.div
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        variants={variants}
-      >
+      <m.div initial="initial" animate="enter" exit="exit" variants={variants}>
         <main id="content">{children}</main>
+        <div className="texture-paper"></div>
+        <Grid/>
       </m.div>
     </>
   )

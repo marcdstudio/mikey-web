@@ -84,6 +84,11 @@ const Site = ({ Component, pageProps, router }) => {
           <title>Loading...</title>
         </Head>
       )}
+      <Header
+        key="header"
+        data={data?.site.header}
+        footer={data?.site.footer}
+      />
       {/* <Scene key="scene" /> */}
       <AnimatePresence
         mode="wait"

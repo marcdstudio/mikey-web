@@ -220,13 +220,13 @@
 
   /* Misc. */
   /* hr {
-    @apply my-60 mx-0 border-0 h-1 bg-pageText;
+    @apply my-60 mx-0 border-0 h-1 bg-primary;
   } */
   
   ::-moz-selection {
-    @apply bg-pageText text-pageBG;
+    @apply bg-primary text-secondary;
   }
   ::selection {
-    @apply bg-pageText text-pageBG;
+    @apply bg-primary text-secondary;
   }
 }

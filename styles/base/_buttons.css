@@ -12,7 +12,7 @@ button{
   &-nav,
   &-filter--inner,
   &-service{
-    @apply bg-offwhite py-5 border border-fog flex flex-col justify-between gap-10 leading-100 duration-300 hover:text-black;
+    @apply bg-white py-5 border border-fog flex flex-col justify-between gap-10 leading-100 duration-300 hover:text-black;
 
     font-size: 10.5px;
   }
@@ -49,7 +49,7 @@ button{
     font-size: 10.5px;
 
     &.is-active{
-      @apply bg-offwhite text-black;
+      @apply bg-white text-black;
     }
   }
 
@@ -58,7 +58,7 @@ button{
   }
 
   &-drop{
-    @apply uppercase text-12 font-mono px-25 h-35 flex items-center justify-center shadow-primary bg-offwhite text-center flex-shrink-0;
+    @apply uppercase text-12 font-mono px-25 h-35 flex items-center justify-center shadow-primary bg-white text-center flex-shrink-0;
 
     transition-property: box-shadow, transform;
     transition-duration: .3s;

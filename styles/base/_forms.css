@@ -106,7 +106,7 @@
         @apply sm:ml-16 sm:w-auto;
 
         &.is-text {
-          @apply border-pageText py-8 sm:border-transparent sm:py-4;
+          @apply border-primary py-8 sm:border-transparent sm:py-4;
         }
       }
     }
@@ -147,12 +147,12 @@
         transition-delay: .15s;
 
         input:checked + & {
-          @apply bg-pageText;
+          @apply bg-primary;
           transition-delay: 0s;
         }
 
         path {
-          @apply stroke-current text-pageBG transition-all;
+          @apply stroke-current text-secondary transition-all;
           stroke-dashoffset: 120px;
           stroke-dasharray: 120px;
           transition-delay: 0s;
@@ -171,7 +171,7 @@
   }
 
   &--error {
-    @apply absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/2 px-10 rounded-full bg-pageText text-pageBG leading-150 font-semibold;
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/2 px-10 rounded-full bg-primary text-secondary leading-150 font-semibold;
   }
 
   &--pot {
@@ -185,7 +185,7 @@
   input[type="email"],
   input[type="number"],
   input[type="password"] {
-    @apply relative appearance-none w-full h-full py-10 rounded-none border font-inherit leading-100 bg-transparent text-pageText;
+    @apply relative appearance-none w-full h-full py-10 rounded-none border font-inherit leading-100 bg-transparent text-primary;
 
     .is-inline & {
       @apply border-0;
@@ -194,9 +194,9 @@
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      @apply bg-transparent text-pageText;
-      -webkit-text-fill-color: var(--pageText);
-      -webkit-box-shadow: 0 0 0 100em var(--pageBG) inset;
+      @apply bg-transparent text-primary;
+      -webkit-text-fill-color: var(--primary);
+      -webkit-box-shadow: 0 0 0 100em var(--secondary) inset;
     }
   }
 
@@ -205,11 +205,11 @@
 
     &:focus {
       + label {
-        outline: 1px dashed var(--pageText);
+        outline: 1px dashed var(--primary);
         outline-offset: 2px;
 
         .is-inverted & {
-          outline-color: var(--pageBG);
+          outline-color: var(--secondary);
         }
         
         body:not(.is-tabbing) & {
@@ -233,16 +233,16 @@
 }
 
 ::-webkit-input-placeholder {
-  @apply text-pageText;
+  @apply text-primary;
 }
 ::-moz-placeholder {
-  @apply text-pageText;
+  @apply text-primary;
 }
 :-ms-input-placeholder {
-  @apply text-pageText;
+  @apply text-primary;
 }
 :-moz-placeholder {
-  @apply text-pageText;
+  @apply text-primary;
 }
 
 *:focus{

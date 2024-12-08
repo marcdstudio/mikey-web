@@ -28,9 +28,6 @@ const Page = ({ data }) => {
     <>
       {!router.isFallback && (
         <Layout site={site} page={page}>
-          <div className="sticky top-0 z-3">
-            <Header key="header" data={data?.site.header} />
-          </div>
           <div className={`px-10 py-60`}>
             <div className="">
               {/* <h2 className="text-10 uppercase leading-100">Studio</h2> */}

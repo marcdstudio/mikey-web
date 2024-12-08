@@ -66,40 +66,16 @@ const Header = ({ data, work }) => {
       </a>
 
       <header
-        className={cx('w-screen z-6 flex gap-5 justify-between p-10 pb-0', {
+        className={cx('fixed z-9 top-0 left-0 w-full grid-standard', {
           shrink: !isHome,
         })}
       >
-        <button
-          onClick={isHome ? () => handleWorkScroll() : () => handleHome()}
-          className="btn-nav uppercase px-10"
+        <NextLink
+          className="col-span-1 -translate-x-6 w-[calc(100%+2.4rem)]"
+          href={'/'}
         >
-          <div className="text-slate nav-count">{work?.projects?.length}</div>
-          <div>Selected Work</div>
-        </button>
-        <NextLink href="/info" className="btn-nav flex-1 px-0">
-          <div className="w-full font-texi text-slate nav-marquee">
-            <Marquee data={marquee} />
-          </div>
-          <div className="uppercase px-10">Information</div>
+          <img className='w-full' src={'/icons/icon-logo-full.png'} alt="logo"/>
         </NextLink>
-        {/* <button
-          onClick={() => handleContact()}
-          className={`btn-nav uppercase px-10 items-end is-contact duration-300${isCopying ? ' is-copying' : ''}`}
-        >
-          <div className="icon-pulse"></div>
-          <div className='hidden md:block'>{isCopying ? 'Copied studio@marcd.co' : 'Contact'}</div>
-          <div className='block md:hidden'>{isCopying ? 'Copied' : 'Contact'}</div>
-        </button> */}
-        <a
-          href="mailto:studio@marcd.co"
-          className={`btn-nav uppercase group px-10 items-end is-contact duration-300${
-            isCopying ? ' is-copying' : ''
-          }`}
-        >
-          <div className="icon-pulse group-hover:bg-black transition-colors duration-300"></div>
-          <div className="">Contact</div>
-        </a>
       </header>
     </>
   )

@@ -87,9 +87,6 @@ const Project = ({ data }) => {
   return (
     <Layout site={site} page={page}>
       <div className="w-full bg-project">
-        <div className="fixed top-0 z-3">
-          <Header key="header" data={data?.site.header} work={work} />
-        </div>
         <div className="w-screen h-screen relative overflow-hidden">
           <div className="flex items-center justify-center overflow-hidden">
             <div
