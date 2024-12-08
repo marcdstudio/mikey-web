@@ -1,0 +1,46 @@
+.mega{
+    &-nav{
+        @apply absolute top-[100%] left-0 w-full;
+
+        &--backdrop{
+            @apply fixed inset-0 bg-primary bg-opacity-10 pointer-events-none opacity-0;
+            transition: opacity .15s linear;
+            top: var(--headerHeight);
+
+            &.is-active {
+                @apply pointer-events-auto opacity-100;
+                backdrop-filter: blur(6px);
+            }
+        }
+    }
+
+    &-item{
+        @apply absolute w-full pointer-events-none;
+
+        &--inner{
+            @apply bg-primary 
+        }
+
+        /* &--border{
+            @apply border-t-0 opacity-0 transition-opacity duration-300;
+        } */
+
+        &.is-active{
+            @apply z-8 pointer-events-auto;
+
+            .mega-item{
+                &--border{
+                    @apply opacity-100
+                }
+            }
+        }
+
+        &.is-location{
+            .mega-item{
+                &--inner{
+                    @apply px-0
+                }
+            }
+        }
+    }
+}

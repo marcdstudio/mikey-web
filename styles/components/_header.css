@@ -1,0 +1,47 @@
+a[href="#content"].skip-link {
+  @apply block fixed top-0 left-1/2 -translate-x-1/2 -translate-y-full z-90 px-2 py-1 uppercase;
+
+  &:focus {
+    @apply translate-y-0 outline-none;
+  }
+}
+
+#mobile-nav{
+  padding-top: var(--headerHeight);
+}
+
+.nav-close{
+  &:not(.is-open){
+    @apply translate-y-[-5rem];
+  }
+}
+
+header{
+  .btn-nav{
+    @apply py-10 text-slate hover:text-black;
+  }
+  
+  &.shrink{
+    .nav-count,
+    .nav-marquee,
+    .icon-pulse{
+      @apply hidden
+    }
+
+    .btn-nav{
+      @apply py-10 text-slate hover:text-black;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    .nav-count,
+    .nav-marquee,
+    .icon-pulse{
+      @apply hidden
+    }
+
+    .btn-nav{
+      @apply py-10 text-slate hover:text-black;
+    }
+  }
+}

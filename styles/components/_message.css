@@ -1,0 +1,13 @@
+.message {
+  @apply opacity-60;
+
+  &:last-child {
+    @apply opacity-100;
+  }
+
+  &-container {
+    @apply pointer-events-none;
+
+    mask-image: linear-gradient(black 0%, black 10%, transparent 80%);
+  }
+}

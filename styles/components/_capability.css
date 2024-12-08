@@ -1,0 +1,13 @@
+.capability{
+    h2{
+        @apply text-slate text-[1.05rem] uppercase;
+    }
+
+    h1{
+        @apply text-12;
+    }
+
+    .accordion--title{
+        @apply text-12
+    }
+}

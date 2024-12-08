@@ -1,0 +1,17 @@
+.info {
+    &-card{
+        &-frame{
+           @apply  overflow-y-auto h-full;
+        }
+    }
+
+    &-container{
+        @apply  h-[calc((var(--vh,1vh)*100)-11rem)] md:h-[calc((var(--vh,1vh)*100)-6.5rem)];
+
+        .image{
+            &-full{
+                @apply p-10
+            }
+        }
+    }
+}

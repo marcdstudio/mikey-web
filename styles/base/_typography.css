@@ -1,0 +1,232 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: 'TeX Regular';
+    src: url('../public/fonts/Tex-Regular.woff') format('woff'),
+      url('/fonts/Tex-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'TeX Italic';
+    src: url('../public/fonts/Tex-Italic.woff') format('woff'),
+      url('/fonts/Tex-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'TeX Bold';
+    src: url('/fonts/Tex-Bold.woff') format('woff'),
+      url('/fonts/Tex-Bold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'TeX Bold Italic';
+    src: url('/fonts/Tex-BoldItalic.woff') format('woff'),
+      url('/fonts/Tex-BoldItalic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+  @font-face {
+    font-family: 'Monument';
+    src: url('/fonts/MonumentGrotesk-Semi-Mono.woff') format('woff'),
+    url('/fonts/MonumentGrotesk-Semi-Mono.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Voyage Regular';
+    src: url('/fonts/voyage-regular.woff') format('woff'),
+    url('/fonts/voyage-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Bota Regular';
+    src: url('/fonts/Bota-Regular.woff') format('woff'),
+    url('/fonts/Bota-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    @apply text-[10px] font-tex;
+  }
+
+  @media screen and (min-width: 650px) and (max-width: 950px){
+    html{
+      font-size: 1.8vw;
+    }
+  }
+
+  html,
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  ul {
+    @apply list-none m-0 p-0;
+  }
+
+  /* Headlines */
+  h1,
+  .h1 {
+    @apply font-normal my-[unset];
+
+    font-size: 10.5px;
+  }
+
+  h2,
+  .h2 {
+    @apply font-normal my-[unset];
+  }
+
+  h3,
+  .h3 {
+    @apply font-normal my-[unset];
+  }
+
+  h4,
+  .h4{
+    @apply my-[unset]
+  }
+
+  /* Body */
+
+  .text-columns{
+    @media screen and (min-width: 850px){
+      columns: 2;
+    }
+  }
+
+  .rc{
+    h1,
+    h2,
+    h3,
+    h4{
+      font-weight: normal;
+    }
+
+    p:not(:last-child){
+      margin-bottom: 1.5rem;
+      margin-top: 0;
+    }
+
+    p:last-child{
+      margin: 0;
+    }
+
+    h2{
+      @apply text-16 mb-15;
+    }
+
+    strong{
+      @apply font-texb;
+      font-weight: normal;
+
+      em{
+        @apply font-texbi;
+      }
+    }
+
+    ul{
+      @apply flex flex-col gap-15 my-20;
+      counter-reset: list-counter;
+      
+      &:last-child{
+        @apply mb-0
+      }
+      
+      li{
+        @apply relative pl-25;
+  
+        &:before{
+          content: counter(list-counter) ""; /* Add the counter content */
+          counter-increment: list-counter; /* Increment the counter */
+          @apply absolute left-0 top-[.2rem] w-[1.6rem] h-[1.6rem] bg-[#D9D9D9] rounded-full flex items-center justify-center font-mono uppercase text-8;
+        }
+      }
+    }
+
+    a{
+      @apply underline text-ash transition-colors duration-300 hover:text-black;
+    }
+    
+  }
+
+  .deliverables{
+    .rc{
+      ul{
+        @apply flex flex-col gap-5 mt-5 mb-15 leading-120;
+        counter-reset: unset;
+        
+        li{
+          @apply relative pl-15;
+    
+          &:before{
+            content: ""; /* Add the counter content */
+            counter-increment: unset; /* Increment the counter */
+            @apply absolute left-0 top-[.7rem] w-[.6rem] h-[.1rem] bg-smoke flex items-center justify-center font-mono uppercase text-10;
+          }
+        }
+      }
+    }
+  }
+
+  .title{
+    &-small{
+      @apply text-slate my-0;
+      font-size: 10.5px;
+
+    }
+  }
+
+  /* Links */
+  a {
+    @apply no-underline text-current;
+  }
+
+  button {
+    @apply clean-btn;
+  }
+
+  /* Images */
+  figure {
+    @apply relative m-0;
+  }
+
+  /* Misc. */
+  /* hr {
+    @apply my-60 mx-0 border-0 h-1 bg-pageText;
+  } */
+  
+  ::-moz-selection {
+    @apply bg-pageText text-pageBG;
+  }
+  ::selection {
+    @apply bg-pageText text-pageBG;
+  }
+}
