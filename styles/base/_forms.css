@@ -1,0 +1,253 @@
+.form {
+  @apply relative;
+  
+  &--error {
+    /* Error Message styles */
+    @apply bg-secondary p-15 text-center text-30 md:text-48;
+
+    &-reset {
+      @apply mt-2;
+    }
+  }
+  
+  &--success {
+    /* Success Message styles */
+    @apply bg-secondary p-15 text-center text-30 md:text-48;
+  }
+
+  label{
+    @apply text-14
+  }
+
+  &--fieldList,
+  &--fieldString,
+  &--fieldDate,
+  &--fieldFile,
+  &--fieldNumber{
+    @apply col-span-6 text-primary
+  }
+
+  &--fieldString,
+  &--fieldDate{
+    @apply border-b text-primary
+  }
+
+  &--fieldText{
+    @apply col-span-12 text-primary;
+
+    textarea{
+      @apply border mt-10 h-full text-primary h-[20rem];
+      resize: none;
+    }
+  }
+
+  &--fieldEmail{
+    @apply col-span-12 border-b cursor-pointer
+  }
+
+  &--fieldFile,
+  &--fieldList{
+    input:not(.hidden), select{
+    @apply text-primary flex items-center cursor-pointer;
+    }
+  }
+
+  &--fieldFile{
+    input, select{
+    @apply border mt-10 h-45;
+    }
+  }
+
+  &-select--wrap{
+    @apply pr-10 border mt-10 py-0 h-45;
+  }
+
+  &::placeholder, option, input, textarea{
+    @apply text-primary;
+  }
+
+  textarea{
+    @apply font-sans
+  }
+}
+
+.control {
+  &:not(.is-custom){
+    @apply flex flex-col relative text-left;
+
+    input[type='date'],
+    select{
+      opacity: 0;
+
+      .is-filled & {
+        opacity: 1;
+      }
+    }
+
+    &.is-filled{
+      input[type='date'],
+      select{
+        opacity: 1;
+      }
+    }
+  }
+
+  &--group:not(.is-custom) {
+    @apply grid gap-y-8 grid-cols-1 sm:grid-cols-2;
+
+    &.is-inline {
+      @apply sm:flex;
+
+      .control {
+        @apply sm:flex-1 m-0;
+      }
+
+      .btn {
+        @apply sm:ml-16 sm:w-auto;
+
+        &.is-text {
+          @apply border-primary py-8 sm:border-transparent sm:py-4;
+        }
+      }
+    }
+
+    &.is-clean {
+      @apply sm:items-center border-b mb-16;
+
+      .control {
+        @apply sm:border-0;
+
+        &--error {
+          @apply sm:left-0 sm:transform-none;
+        }
+      }
+    }
+
+    &.is-newsletter{
+      @apply border-b-0 md:border-b pb-10;
+    }
+  }
+
+  &--label:not(.is-custom) {
+    @apply absolute top-1/2 -translate-y-1/2 left-0 py-10 uppercase leading-100 z-2;
+
+    .is-filled & {
+      @apply hidden text-primary;
+    }
+
+    &.for-textarea {
+      @apply top-0 transform-none;
+    }
+
+    &.for-checkbox {
+      @apply transform-none inline-flex relative top-auto left-auto p-0 cursor-pointer;
+
+      svg {
+        @apply block flex-none mr-16 p-4 w-20 h-20 pointer-events-none border border-current transition-colors;
+        transition-delay: .15s;
+
+        input:checked + & {
+          @apply bg-primary;
+          transition-delay: 0s;
+        }
+
+        path {
+          @apply stroke-current text-secondary transition-all;
+          stroke-dashoffset: 120px;
+          stroke-dasharray: 120px;
+          transition-delay: 0s;
+
+          input:checked + & {
+            stroke-dashoffset: 0;
+            transition-delay: .15s;
+          }
+        }
+      }
+
+      .rc {
+        @apply flex flex-col justify-center m-0 select-none;
+      }
+    }
+  }
+
+  &--error {
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/2 px-10 rounded-full bg-primary text-secondary leading-150 font-semibold;
+  }
+
+  &--pot {
+    @apply hidden;
+  }
+}
+
+.control:not(.is-custom){
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"] {
+    @apply relative appearance-none w-full h-full py-10 rounded-none border font-inherit leading-100 bg-transparent text-primary;
+
+    .is-inline & {
+      @apply border-0;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      @apply bg-transparent text-primary;
+      -webkit-text-fill-color: var(--primary);
+      -webkit-box-shadow: 0 0 0 100em var(--secondary) inset;
+    }
+  }
+
+  input[type="checkbox"] {
+    @apply sr-only;
+
+    &:focus {
+      + label {
+        outline: 1px dashed var(--primary);
+        outline-offset: 2px;
+
+        .is-inverted & {
+          outline-color: var(--secondary);
+        }
+        
+        body:not(.is-tabbing) & {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  textarea {
+    @apply max-w-full;
+    resize: none;
+  }
+
+  &.has-error {
+    input,
+    textarea {
+      /* Form Control Error styles */
+    }
+  }
+}
+
+::-webkit-input-placeholder {
+  @apply text-primary;
+}
+::-moz-placeholder {
+  @apply text-primary;
+}
+:-ms-input-placeholder {
+  @apply text-primary;
+}
+:-moz-placeholder {
+  @apply text-primary;
+}
+
+*:focus{
+  outline: none;
+}
+
+input{
+}

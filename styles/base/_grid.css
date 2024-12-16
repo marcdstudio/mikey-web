@@ -1,0 +1,150 @@
+.texture-paper {
+  background-image: url('/icons/texture_paper_cream.jpg');
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  @apply absolute top-0 left-0 w-full h-full pointer-events-none opacity-85;
+}
+
+.texture-paper.is-base {
+  @apply opacity-100 fixed;
+}
+
+.texture-grid {
+  @apply absolute left-0 top-0 w-full h-full grid grid-cols-6 gap-24 px-24 pointer-events-none;
+}
+
+.grid-standard {
+  @apply grid grid-cols-6 gap-24 px-24;
+}
+
+.grid-line {
+  &--vertical {
+    background-image: url('/icons/icon_line.png');
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    opacity: .3;
+
+    @apply w-[.2rem] h-full absolute top-0 -translate-x-12;
+
+    &:nth-child(1) {
+      @apply left-18 -translate-x-6;
+    }
+    &:nth-child(2) {
+      @apply col-start-2;
+    }
+    &:nth-child(3) {
+      @apply col-start-3;
+    }
+    &:nth-child(4) {
+      @apply col-start-4;
+    }
+    &:nth-child(5) {
+      @apply col-start-5;
+    }
+    &:nth-child(6) {
+      @apply col-start-6;
+    }
+    &:nth-child(7) {
+      @apply right-17 translate-x-6;
+    }
+  }
+
+  &--horizontal{
+    background-image: url('/icons/icon_line_horizontal.png');
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: auto 100%;
+    opacity: .3;
+
+    @apply w-full h-[.2rem] absolute left-0;
+
+    &:nth-child(1) {
+      @apply row-start-1
+    }
+    &:nth-child(2) {
+      @apply row-start-2
+    }
+    &:nth-child(3) {
+      @apply row-start-3
+    }
+    &:nth-child(4) {
+      @apply row-start-4
+    }
+    &:nth-child(5) {
+      @apply row-start-5
+    }
+    &:nth-child(6) {
+      @apply row-start-6
+    }
+    &:nth-child(7) {
+      @apply row-start-1
+    }
+  }
+}
+
+.grid-cross{
+  @apply col-span-1 row-span-1 grid grid-cols-6 grid-rows-1 gap-24 px-24 h-full items-end relative pointer-events-none;
+
+  &-span{
+    @apply col-span-1 h-full relative z-2 -translate-y-13;
+
+    &:first-of-type{
+      .grid-cross--icon{
+        @apply -translate-x-18;
+      }
+    }
+    &:nth-child(7){
+      @apply absolute right-6 h-full;
+
+      .grid-cross--icon{
+        @apply -translate-x-1 top-0 right-12
+      }
+    }
+  }
+
+  &:last-child{
+    @apply absolute bottom-0 left-0 w-full h-[.6rem];
+
+    .grid-line--horizontal{
+      @apply top-0;
+    }
+  }
+
+  .grid-line--horizontal.is-top{
+    @apply top-0 translate-y-5;
+  }
+
+  &--icon{
+    background-image: url('/icons/icon-cross.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    opacity: .5;
+
+    @apply h-[1.2rem] w-[1.2rem] -translate-x-18 translate-y-6 left-0;
+  }
+}
+
+.footer {
+  &-grid {
+    @apply px-24;
+    
+    .grid-item {
+      @apply col-span-1 relative;
+
+      .grid-item--content {
+        @apply -translate-y-12 absolute -translate-x-18 w-[calc(100%+3.6rem)];
+      }
+
+      &:nth-child(2) {
+        .grid-item--content {
+          @apply -translate-x-18;
+        }
+      }
+      
+    }
+  }
+}

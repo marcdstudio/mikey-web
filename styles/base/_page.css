@@ -1,0 +1,44 @@
+html {
+  &.is-loading,
+  &.is-loading * {
+    @apply cursor-wait !important;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  @apply flex flex-col text-16 tracking-[-.03em] leading-115;
+
+  &[data-theme="dark"]{
+    @apply bg-black text-cream;
+
+    .logo-icon{
+      @apply invert
+    }
+  }
+}
+
+.no-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+
+/* .section {
+  @apply relative px-4 py-12 sm:p-8 md:py-16 lg:py-20 border-b;
+
+  &--content {
+    @apply mx-auto;
+  }
+} */

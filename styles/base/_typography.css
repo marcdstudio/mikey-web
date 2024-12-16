@@ -1,0 +1,162 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: 'Favorit';
+    src: url('../public/fonts/favorit.woff') format('woff'),
+      url('/fonts/favorit.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    @apply text-[10px] font-sans;
+  }
+
+  @media screen and (min-width: 650px) and (max-width: 950px){
+    html{
+      font-size: 1.8vw;
+    }
+  }
+
+  html,
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  ul {
+    @apply list-none m-0 p-0;
+  }
+
+  /* Headlines */
+  h1,
+  .h1 {
+    @apply font-normal my-[unset];
+  }
+
+  h2,
+  .h2 {
+    @apply font-normal my-[unset];
+  }
+
+  h3,
+  .h3 {
+    @apply font-normal my-[unset];
+  }
+
+  h4,
+  .h4{
+    @apply my-[unset]
+  }
+
+  /* Body */
+
+  .text-columns{
+    @media screen and (min-width: 850px){
+      columns: 2;
+    }
+  }
+
+  .rc{
+    h1,
+    h2,
+    h3,
+    h4{
+      font-weight: normal;
+    }
+
+    p:not(:last-child){
+      margin-bottom: 1.5rem;
+      margin-top: 0;
+    }
+
+    p:last-child{
+      margin: 0;
+    }
+
+    h2{
+      @apply text-16 mb-15;
+    }
+
+    strong{
+      @apply font-sans;
+      font-weight: normal;
+
+      em{
+        @apply font-sans;
+      }
+    }
+
+    ul{
+      @apply flex flex-col gap-15 my-20;
+      counter-reset: list-counter;
+      
+      &:last-child{
+        @apply mb-0
+      }
+      
+      li{
+        @apply relative pl-25;
+  
+        &:before{
+          content: counter(list-counter) ""; /* Add the counter content */
+          counter-increment: list-counter; /* Increment the counter */
+          @apply absolute left-0 top-[.2rem] w-[1.6rem] h-[1.6rem] bg-[#D9D9D9] rounded-full flex items-center justify-center font-mono uppercase text-8;
+        }
+      }
+    }
+
+    a{
+      @apply underline text-ash transition-colors duration-300 hover:text-black;
+    }
+    
+  }
+
+  .title{
+    &-xl{
+      @apply leading-100 text-54;
+    }
+
+    &-lg{
+      @apply leading-100 text-48;
+    }
+
+    &-md{
+      @apply leading-100 text-36;
+    }
+  }
+
+  /* Links */
+  a {
+    @apply no-underline text-current;
+  }
+
+  button {
+    @apply clean-btn;
+  }
+
+  /* Images */
+  figure {
+    @apply relative m-0;
+  }
+
+  /* Misc. */
+  /* hr {
+    @apply my-60 mx-0 border-0 h-1 bg-primary;
+  } */
+  
+  ::-moz-selection {
+    @apply bg-primary text-secondary;
+  }
+  ::selection {
+    @apply bg-primary text-secondary;
+  }
+}

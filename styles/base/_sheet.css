@@ -1,0 +1,5 @@
+.sheet{
+  &-trace{
+    @apply h-screen w-screen sticky top-0;
+  }
+}

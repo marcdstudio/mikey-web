@@ -1,0 +1,28 @@
+.accordion-group {
+}
+
+.accordion {
+  &--toggle {
+    .accordion--title {
+      @apply block relative pl-15;
+
+      &:after {
+        content: '';
+        @apply w-[.6rem] h-[.6rem] bg-cement rounded-full absolute left-0 top-1/2 -translate-y-1/2 transition-colors duration-300;
+      }
+    }
+
+    &:hover,
+    &.is-open {
+      .accordion--title {
+        &:after {
+          @apply bg-black;
+        }
+      }
+    }
+  }
+
+  &--inner{
+    @apply text-left;
+  }
+}

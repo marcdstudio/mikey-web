@@ -1,0 +1,42 @@
+.carousel--container{
+    --slideHeight: 31rem;
+
+    @media (min-width:1800px){
+        --slideHeight: 38rem;
+    }
+
+    @media (max-width:1500px) and (min-width:850px){
+        --slideHeight: 27rem;
+    }
+
+    @media (max-width:849px) and (min-width:480px){
+        --slideHeight: 55vw;
+    }
+
+    @media (max-width:479px){
+        --slideHeight: 53vw;
+    }
+}
+
+.carousel {
+    &--slides{
+        &.is-drawer{
+            backface-visibility: hidden;
+            display: flex;
+            touch-action: pan-y;
+            flex-direction: row;
+            height: auto;
+        }
+    }
+    &-slide{
+        &.is-drawer{
+            overflow: hidden;
+            flex: 0 0 calc(var(--slideHeight) * var(--slideRatio));
+            height: var(--slideHeight);
+            min-width: 0;
+            padding-left: calc(var(--slideHeight) * var(--slideRatio));
+            margin-left: 1rem;
+            position: relative;
+        }
+    }
+}
