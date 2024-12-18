@@ -18,17 +18,28 @@ export default {
         source: 'title',
         maxLength: 96
       },
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required(),
+      hidden: true
     },
     {
-      name: 'description',
-      title: 'Studio Description',
-      type: 'string'
-    },
-    {
-      name: 'about',
-      title: 'About',
-      type: 'complexPortableText'
+      name: 'contentModules',
+      title: 'Content Modules',
+      description: '(Required)',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [
+        { type: 'hero' },
+        { type: 'mediaFull' },
+        { type: 'media2Up' },
+        { type: 'mediaText2Up' },
+        { type: 'mediaText3Up' },
+        { type: 'mediaText' },
+        { type: 'carousel' },
+        { type: 'model' },
+        { type: 'categories' },
+        { type: 'link3Up' },
+        { type: 'drawers' }
+      ],
     },
     {
       name: 'seo',

@@ -51,50 +51,6 @@ const HeadSEO = ({ site = {}, page = {}, schema }) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="format-detection" content="telephone=no" />
 
-      {/* Preload Fonts */}
-      <link
-        rel="preload"
-        href="/fonts/Tex-Italic.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link>
-      <link
-        rel="preload"
-        href="/fonts/Tex-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link>
-      <link
-        rel="preload"
-        href="/fonts/Tex-Bold.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link>
-      <link
-        rel="preload"
-        href="/fonts/Tex-BoldItalic.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link>
-      <link
-        rel="preload"
-        href="/fonts/MonumentGrotesk-Semi-Mono.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link>
-      <link
-        rel="preload"
-        href="/fonts/Bota-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      ></link> 
-
       {/* <link rel="icon" href={siteFaviconLegacy} sizes="any" /> */}
       <link preload="true" rel="icon" type="image/svg+xml" href={siteFavicon} />
       <link preload="true" rel="mask-icon" href={siteFavicon} color="#000000" />

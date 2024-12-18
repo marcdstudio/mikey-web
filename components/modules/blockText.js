@@ -7,7 +7,7 @@ const BlockText = ({ data = {}, type }) => {
 
   return (
     <section
-      className={`mt-32 mb-96 px-16 md:px-32 grid grid-cols-12 gap-32`}
+      className={`mt-32 mb-96 px-14 md:px-32 grid grid-cols-12 gap-32`}
     >
       <div
         className={`w-full relative${width == 'narrow' ? ' col-span-12 md:col-span-4' : ' col-span-12 md:col-span-8'}${alignment == 'right' ? ' col-span-1  md:col-start-5' : ' col-span-1'}`}

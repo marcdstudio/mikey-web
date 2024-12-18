@@ -6,8 +6,13 @@ import * as THREE from 'three'
 
 const degToRad = (degrees) => degrees * (Math.PI / 180)
 
-const ScreenMesh = () => {
-  const { nodes } = useGLTF('/models/house.glb')
+const Model = ({ model }) => {
+  const url = model
+
+  if (!url) return
+
+  const { nodes, scene } = useGLTF(url);
+
   return (
     <group rotation={[0, degToRad(180), 0]}>
       <mesh geometry={nodes.House_Mesh.geometry}>
@@ -17,17 +22,20 @@ const ScreenMesh = () => {
   )
 }
 
-const Screen = () => {
-
+const Mesh = ({ model }) => {
   return (
     <Suspense fallback={null}>
-      <group rotation={[degToRad(270), degToRad(0), degToRad(0)]} scale={.8} dispose={null}>
-        <ScreenMesh />
+      <group
+        rotation={[degToRad(270), degToRad(0), degToRad(0)]}
+        scale={0.8}
+        dispose={null}
+      >
+        <Model model={model} />
       </group>
     </Suspense>
   )
 }
 
-const Scene = () => <Screen />
+const Scene = ({ model }) => <Mesh model={model} />
 
 export default Scene

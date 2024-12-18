@@ -13,17 +13,28 @@ export default {
       of: [{ type: 'media' }],
       validation: (Rule) => Rule.required().min(2).max(2),
     },
+    {
+      title: 'Caption',
+      name: 'caption',
+      type: 'string'
+    },
+    {
+      title: 'Drawing',
+      name: 'drawing',
+      type: 'boolean',
+      initialValue: false
+    },
   ],
   preview: {
     select: {
-      caption: 'caption',
-      video: 'content.0.media.media.0.video',
-      image: 'content.0.media.media.0.image',
+      title: 'caption',
+      video: 'content.0.media.0.video',
+      image: 'content.0.media.0.image',
     },
-    prepare({ caption, video, image }) {
+    prepare({ title, video, image }) {
       return {
-        title: caption || `${video ? 'Video' : 'Image'} Feature`,
-        subtitle: caption ? `${video ? 'Video' : 'Image'} Feature` : null,
+        title: title || 'No Caption',
+        subtitle: 'Media 2-Up',
         media: video ? (
           <div style={{ width: '100%', height: '100%' }}>
             <video
@@ -40,7 +51,7 @@ export default {
             ></video>
           </div>
         ) : (
-          image || <Columns />
+          image
         ),
       }
     },

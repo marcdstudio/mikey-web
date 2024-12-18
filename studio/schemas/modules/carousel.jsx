@@ -7,10 +7,10 @@ export default {
   icon: ArrowsLeftRight,
   fields: [
     {
-      title: 'Images',
-      name: 'images',
+      title: 'Media',
+      name: 'media',
       type: 'array',
-      of: [{ type: 'asset'}],
+      of: [{ type: 'media'}],
       validation: Rule => Rule.min(4),
       preview: {
         select: {
@@ -24,13 +24,43 @@ export default {
           }
         }
       }
-    }
+    },
+    {
+      title: 'Drawing',
+      name: 'drawing',
+      type: 'boolean',
+      initialValue: false
+    },
   ],
   preview: {
-    prepare() {
+    select: {
+      title: 'caption',
+      video: 'media.0.media.0.video',
+      image: 'media.0.media.0.image',
+    },
+    prepare({ title, video, image }) {
       return {
-        title: 'Carousel'
+        title: title || 'No Caption',
+        subtitle: 'Carousel',
+        media: video ? (
+          <div style={{ width: '100%', height: '100%' }}>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              src={video}
+            ></video>
+          </div>
+        ) : (
+          image
+        ),
       }
-    }
-  }
+    },
+  },
 }

@@ -2,10 +2,33 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import GridCross from '@components/grid-cross'
 
-const Grid = () => {
-  return (
+const Grid = ({ type, items }) => {
+  return type == 'work' ? (
+    <div className="texture-grid is-work">
+      <section className="texture-paper"></section>
+
+      {/* x axis */}
+      <div className="grid-line--vertical"></div>
+      <div className="grid-line--vertical"></div>
+      <div className="grid-line--vertical"></div>
+      <div className="grid-line--vertical"></div>
+      <div className="absolute left-0 top-0 w-full h-screen flex-col justify-between grid grid-cols-1">
+        <GridCross type={'work'} index={0} />
+        {items?.map((item, key) => {
+          return (
+            <>
+              <GridCross type={'work'} />
+              <GridCross type={'work'} />
+              <GridCross type={'work'} />
+              <GridCross type={'work'} />
+            </>
+          )
+        })}
+      </div>
+    </div>
+  ) : (
     <div className="texture-grid">
-      <div className="texture-paper"></div>
+      <section className="texture-paper"></section>
 
       {/* x axis */}
       <div className="grid-line--vertical"></div>

@@ -41,41 +41,39 @@ const Layout = ({ site = {}, page = {}, schema, children }) => {
 
   //setup ga4 events
 
-  // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-  const pageview = (url) => {
-    window.gtag('config', site.gtmID, {
-      page_path: url,
-    })
-  }
+  // // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
+  // const pageview = (url) => {
+  //   window.gtag('config', site.gtmID, {
+  //     page_path: url,
+  //   })
+  // }
 
-  // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-  const event = ({ action, category, label, value }) => {
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    })
-  }
+  // // https://developers.google.com/analytics/devguides/collection/gtagjs/events
+  // const event = ({ action, category, label, value }) => {
+  //   window.gtag('event', action, {
+  //     event_category: category,
+  //     event_label: label,
+  //     value: value,
+  //   })
+  // }
 
   const router = useRouter()
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+  // useEffect(() => {
+  //   const handleRouteChange = (url) => {
+  //     pageview(url)
+  //   }
+  //   router.events.on('routeChangeComplete', handleRouteChange)
+  //   return () => {
+  //     router.events.off('routeChangeComplete', handleRouteChange)
+  //   }
+  // }, [router.events])
 
   useEffect(() => {
     if (isBrowser) {
       document.body.style.setProperty('--vh', `${windowHeight * 0.01}px`)
     }
   }, [windowHeight])
-
-  console.log('site', site)
 
   return (
     <>

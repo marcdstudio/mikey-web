@@ -8,7 +8,7 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Page Title',
+      title: 'Name',
       type: 'string'
     },
     {
@@ -20,6 +20,11 @@ export default {
         maxLength: 96
       },
       validation: Rule => Rule.required()
-    }
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url'
+    },
   ]
 }

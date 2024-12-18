@@ -29,7 +29,7 @@ const ProductHero = ({ product, activeVariant, onVariantChange, modules }) => {
           />
         </div>
 
-        <div className="w-full md:w-1/2 flex items-center px-16 md:px-0 pt-32 md:pt-0">
+        <div className="w-full md:w-1/2 flex items-center px-14 md:px-0 pt-32 md:pt-0">
           <div className="w-full md:w-2/3 md:mx-auto flex flex-col items-end justify-center relative md:h-screen">
             <div className="mb-35 w-full md:w-3/4">
               <div className="mb-25 md:mb-35 flex flex-col items-start">

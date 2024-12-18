@@ -12,11 +12,15 @@
 }
 
 .texture-grid {
-  @apply absolute left-0 top-0 w-full h-full grid grid-cols-6 gap-24 px-24 pointer-events-none;
+  @apply absolute left-0 top-0 w-full h-full grid grid-cols-3 md:grid-cols-6 gap-24 px-14 md:px-24 pointer-events-none;
+
+  &.is-work{
+    @apply grid-cols-3
+  }
 }
 
 .grid-standard {
-  @apply grid grid-cols-6 gap-24 px-24;
+  @apply grid grid-cols-3 md:grid-cols-6 gap-12 md:gap-24 px-14 md:px-24;
 }
 
 .grid-line {
@@ -29,26 +33,26 @@
 
     @apply w-[.2rem] h-full absolute top-0 -translate-x-12;
 
-    &:nth-child(1) {
-      @apply left-18 -translate-x-6;
+    &:nth-of-type(1) {
+      @apply left-12 md:left-18 -translate-x-6;
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       @apply col-start-2;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       @apply col-start-3;
     }
-    &:nth-child(4) {
-      @apply col-start-4;
+    &:nth-of-type(4) {
+      @apply col-start-4 hidden md:block;
     }
-    &:nth-child(5) {
-      @apply col-start-5;
+    &:nth-of-type(5) {
+      @apply col-start-5 hidden md:block;
     }
-    &:nth-child(6) {
-      @apply col-start-6;
+    &:nth-of-type(6) {
+      @apply col-start-6 hidden md:block;
     }
-    &:nth-child(7) {
-      @apply right-17 translate-x-6;
+    &:nth-of-type(7) {
+      @apply right-11 md:right-17 translate-x-6;
     }
   }
 
@@ -71,37 +75,52 @@
       @apply row-start-3
     }
     &:nth-child(4) {
-      @apply row-start-4
+      @apply row-start-4 hidden md:block
     }
     &:nth-child(5) {
-      @apply row-start-5
+      @apply row-start-5 hidden md:block
     }
     &:nth-child(6) {
-      @apply row-start-6
+      @apply row-start-6 hidden md:block
     }
     &:nth-child(7) {
-      @apply row-start-1
+      @apply row-start-1 hidden md:block
     }
   }
 }
 
 .grid-cross{
-  @apply col-span-1 row-span-1 grid grid-cols-6 grid-rows-1 gap-24 px-24 h-full items-end relative pointer-events-none;
+  @apply col-span-1 row-span-1 grid grid-cols-3 md:grid-cols-6 grid-rows-1 gap-24 px-12 md:px-24 h-full items-end relative pointer-events-none;
 
   &-span{
     @apply col-span-1 h-full relative z-2 -translate-y-13;
 
     &:first-of-type{
       .grid-cross--icon{
-        @apply -translate-x-18;
+        @apply -translate-x-12 md:-translate-x-18;
       }
     }
+    &:nth-child(4) {
+      @apply hidden md:block
+    }
+    &:nth-child(5) {
+      @apply hidden md:block
+    }
+    &:nth-child(6) {
+      @apply hidden md:block
+    }
     &:nth-child(7){
-      @apply absolute right-6 h-full;
+      @apply absolute right-0 md:right-6 h-full;
 
       .grid-cross--icon{
         @apply -translate-x-1 top-0 right-12
       }
+    }
+  }
+
+  &:first-child{
+    .grid-cross-span{
+      @apply -translate-y-6
     }
   }
 
@@ -128,6 +147,9 @@
   }
 }
 
+.texture-grid.is-work{
+}
+
 .footer {
   &-grid {
     @apply px-24;
@@ -136,7 +158,7 @@
       @apply col-span-1 relative;
 
       .grid-item--content {
-        @apply -translate-y-12 absolute -translate-x-18 w-[calc(100%+3.6rem)];
+        @apply relative -translate-x-18 w-[calc(100%+3.6rem)];
       }
 
       &:nth-child(2) {

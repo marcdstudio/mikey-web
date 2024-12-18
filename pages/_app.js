@@ -7,7 +7,6 @@ import {
   motion,
   AnimatePresence,
 } from 'framer-motion'
-import Scene from '@components/scene'
 import Header from '@components/header'
 
 import '../styles/tailwind.css'
@@ -89,7 +88,6 @@ const Site = ({ Component, pageProps, router }) => {
         data={data?.site.header}
         footer={data?.site.footer}
       />
-      {/* <Scene key="scene" /> */}
       <AnimatePresence
         mode="wait"
         onExitComplete={() => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Browser } from 'phosphor-react'
+import { Browser, SmileyBlank } from 'phosphor-react'
 
 export default {
   title: 'Project',
@@ -36,6 +36,62 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'year',
+      title: 'Year',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'reference',
+      to: [{ type: 'location' }]
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{ type: 'category' }]
+    },
+    {
+      name: 'credits',
+      title: 'Credits',
+      type: 'array',
+      of: [
+        {
+          name: 'credit',
+          title: 'Credit',
+          type: 'object',
+          icon: SmileyBlank,
+          fields: [
+            {
+              name: 'profile',
+              title: 'Profile',
+              type: 'reference',
+              to: [{ type: 'profile' }]
+            },
+            {
+              name: 'role',
+              title: 'Role',
+              type: 'string',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'profile.title',
+              link: 'profile.link',
+            },
+            prepare({ title, link }) {
+              return {
+                title: title ? title : video ? 'Video' : 'Image',
+                subtitle: link || 'No Link',
+              }
+            },
+          },
+        },
+      ]
+    },
+    {
       name: 'thumbnail',
       title: 'Thumbnail',
       description: '(Required)',
@@ -59,9 +115,17 @@ export default {
       of: [
         { type: 'mediaFull' },
         { type: 'media2Up' },
-        { type: 'media3Up' },
-        { type: 'blockText' },
+        { type: 'carousel' },
+        { type: 'model' },
       ],
+    },
+    {
+      name: 'related',
+      title: 'Related Projects',
+      description: '(Required)',
+      type: 'array',
+      validation: (Rule) => Rule.required().min(3).max(3),
+      of: [{ type: 'reference', to: [{ type: 'project' }] }],
     },
     {
       title: 'SEO / Share Settings',
@@ -73,7 +137,7 @@ export default {
     select: {
       title: 'title',
       code: 'code',
-      industry: 'industries.0.title',
+      industry: 'category.title',
       image: 'thumbnail.media.0.image',
       video: 'thumbnail.media.0.video',
       year: 'year',
@@ -81,7 +145,7 @@ export default {
     prepare({ title, image, video, industry, code }) {
       return {
         title: title ? title : video ? 'Video' : 'Image',
-        subtitle: `NK-${code} | ${industry}`,
+        subtitle: `${industry}`,
         media: video ? (
           <div style={{ width: '100%', height: '100%' }}>
             <video

@@ -12,7 +12,7 @@ const Media2Up = ({ data = {} }) => {
       <div className="md:hidden">
         <Carousel slides={content} />
       </div>
-      <div className={`hidden md:grid grid-cols-12 gap-32 px-16 md:px-32`}>
+      <div className={`hidden md:grid grid-cols-12 gap-32 px-14 md:px-32`}>
         {content?.map((media, key) => {
           return (
             <div key={key} className={`w-full relative col-span-4`}>

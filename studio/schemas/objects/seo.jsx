@@ -3,7 +3,8 @@ export default {
   name: 'seo',
   type: 'object',
   options: {
-    collapsible: true
+    collapsible: true,
+    collapsed: true
   },
   fields: [
     {

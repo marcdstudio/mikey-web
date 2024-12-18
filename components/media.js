@@ -14,7 +14,7 @@ const Media = ({
   setAspect,
   controls,
   force
-}) => {
+}) => {  
 
   return (
     <>
@@ -24,7 +24,7 @@ const Media = ({
           isSlide={isSlide}
           layout={layout}
           className={className}
-          src={media.video}
+          src={media.video?.url}
           poster={media.poster}
           posterAspect={media.posterAspect}
           autoplayDisabled={media.autoplayDisabled}

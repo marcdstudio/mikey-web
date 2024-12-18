@@ -19,24 +19,17 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'tagline',
-      title: 'Tagline',
-      type: 'string'
+      name: 'contentModules',
+      title: 'Content Modules',
+      description: '(Required)',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [
+        { type: 'featuredProject' },
+        { type: 'featuredProject3Up' },
+        { type: 'mediaText2Up' },
+        { type: 'drawers' }
+      ],
     },
-    {
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'string'
-    },
-    {
-      name: 'recycling',
-      title: 'Recycling',
-      type: 'string'
-    },
-    {
-      name: 'loading',
-      title: 'Loading Text',
-      type: 'string'
-    }
   ]
 }

@@ -10,7 +10,7 @@ import { OrthographicCamera } from '@react-three/drei'
 // import { useTexture } from '@react-three/drei'
 import Studio from '@components/scene/studio'
 import Chair from '@components/chair'
-import Screen from '@components/scene/screen'
+import Screen from '@components/scene/model'
 
 import { useWindowSize } from '@lib/helpers'
 

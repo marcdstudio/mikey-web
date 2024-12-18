@@ -6,6 +6,7 @@ import schemas from './schemas/schema'
 import deskStructure from './deskStructure'
 import { dashboardTool } from '@sanity/dashboard'
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify'
+import {colorInput} from '@sanity/color-input'
 
 import { Eye } from 'phosphor-react'
 
@@ -42,6 +43,7 @@ export default defineConfig({
     deskTool({
       structure: deskStructure
     }),
+    colorInput(),
     dashboardTool({
       widgets: [
         netlifyWidget({

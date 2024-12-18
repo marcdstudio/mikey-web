@@ -8,7 +8,7 @@ export default {
     {
       name: 'video',
       title: 'Video',
-      type: 'string'
+      type: 'file'
     },
     {
       name: 'poster',

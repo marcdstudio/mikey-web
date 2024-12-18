@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply flex flex-col text-16 tracking-[-.03em] leading-115;
+  @apply flex flex-col text-15 tracking-[-.03em] leading-115;
 
   &[data-theme="dark"]{
     @apply bg-black text-cream;
@@ -21,8 +21,35 @@ body {
     .logo-icon{
       @apply invert
     }
+
+    .texture-paper{
+      background-image: url('/icons/texture_paper_black.jpg');
+    }
+
+    img{
+      filter: grayscale(1);
+    }
+
+    figure{
+      @apply mix-blend-normal;
+    }
+
+    .is-drawing{
+      figure{
+        @apply invert
+      }
+    }
   }
 }
+
+/* .sheet-container{
+  @apply h-screen overflow-auto;
+  scroll-snap-type: proximity;
+
+  section{
+    scroll-snap-align: start;
+  }
+} */
 
 .no-bar {
   -ms-overflow-style: none;

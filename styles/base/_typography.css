@@ -130,7 +130,15 @@
     }
 
     &-md{
-      @apply leading-100 text-36;
+      @apply leading-100 text-24 md:text-36;
+    }
+
+    &-sm{
+      @apply leading-100 text-30;
+    }
+
+    &-xs{
+      @apply leading-100 text-24;
     }
   }
 

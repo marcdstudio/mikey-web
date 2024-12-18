@@ -72,7 +72,7 @@ export const mediaContent = `
       ${assetMeta}
     },
     _type == 'video' => {
-      'video': video,
+      'video': video.asset->{...},
       'poster': poster.asset->url,
       "posterAspect": poster.asset->metadata.dimensions.aspectRatio,
       autoplayDisabled
@@ -114,23 +114,125 @@ export const modules = `
       ${ptContent}
     }
   },
+  _type == 'hero' => {
+    _type,
+    _key,
+    title,
+    media{${mediaContent}},
+    background
+  },
   _type == 'media2Up' => {
     _type,
     _key,
     caption,
-    content[]{media{${mediaContent}}}
+    drawing,
+    content[]{${mediaContent}}
   },
-  _type == 'media3Up' => {
+  _type == 'mediaText2Up' => {
     _type,
     _key,
-    caption,
-    content[]{media{${mediaContent}}}
+    content[]{
+      ${ptContent}
+    },
+    media{${mediaContent}}
+  },
+  _type == 'mediaText3Up' => {
+    _type,
+    _key,
+    items[]{
+      title,
+      content[]{
+        ${ptContent}
+      },
+      media{${mediaContent}},
+    }
+  },
+  _type == 'link3Up' => {
+    _type,
+    _key,
+    items[]{
+      title,
+      link[0]{${link}},
+    }
+  },
+  _type == 'categories' => {
+    _type,
+    _key,
+    items[]->{
+      title,
+      description,
+      thumbnail { ${mediaContent} },
+      color,
+      "projects": *[_type == 'project' && category._ref == ^._id]{
+        title
+      }
+    }
+  },
+  _type == 'mediaText' => {
+    _type,
+    _key,
+    title,
+    content[]{
+      ${ptContent}
+    },
+    media{${mediaContent}}
   },
   _type == 'mediaFull' => {
     _type,
     _key,
+    bleed,
     media{${mediaContent}},
     caption,
+    drawing
+  },
+  _type == 'drawers' => {
+    _type,
+    _key,
+    drawers[]{
+      _key,
+      media{${mediaContent}},
+      content[]{${ptContent}},
+      title,
+      link,
+      date
+    }
+  },
+  _type == 'carousel' => {
+    _type,
+    _key,
+    media[]{${mediaContent}},
+    caption,
+    drawing
+  },
+  _type == 'model' => {
+    _type,
+    _key,
+    model{asset->{...}},
+    caption,
+  },
+  _type == 'featuredProject' => {
+    _type,
+    _key,
+    project->{
+      title,
+      caption,
+      thumbnail{${mediaContent}},
+      category->{color, title},
+      description[]{${ptContent}}
+    },
+  },
+  _type == 'featuredProject3Up' => {
+    _type,
+    _key,
+    title,
+    projects[]->{
+      title,
+      'slug': slug.current,
+      caption,
+      thumbnail{${mediaContent}},
+      category->{color, title},
+      description[]{${ptContent}}
+    },
   },
   _type == 'blockText' => {
     _type,
@@ -256,26 +358,9 @@ export const site = `
       email
     },
     "footer": *[_type == "footerSettings"][0]{ 
-      images[]{
-        ${assetMeta}
-      },
       links[]{
         ${link}
       },
-      banner{
-        items[]{
-          _type == 'simple' => {
-            _type,
-            text
-          },
-        },
-        speed,
-        reverse,
-        pausable
-      },
-      newsletter,
-      instagram,
-      copyright
     },
     "seo": *[_type == "seoSettings"][0]{
       metaTitle,
@@ -293,32 +378,26 @@ export const site = `
 
 export const projectData = `
   'id': _id,
-  'work': *[_type == "selectedWork"][0]{
-    projects[]->{
-      title,
-      'slug': slug.current,
-      'tags': info.tags[]->{title, 'slug':slug.current}
-    }
-  },
+  title,
+  subtitle,
+  year,
+  location->{title},
+  'category': category->{title, color},
+  'slug': slug.current,
+  'tags': info.tags[]->{title, 'slug':slug.current},
+  description[]{${ptContent}},
+  thumbnail{${mediaContent}},
   contentModules[]{
     ${modules}
   },
-  creditList[]{
-    'title': credit->title,
-    credits[]->{...}
+  credits[]{
+    profile->{title, link},
+    role,
   },
-  title,
-  subtitle,
-  'slug': slug.current,
-  'services': info.tags[]->title,
-  'tags': info.tags[]->{title, 'slug':slug.current},
-  description[]{${ptContent}},
   seo,
-  related[0]->{
+  related[]->{
     title,
     'slug': slug.current,
-    info{
-      thumbPlaceholder{${assetMeta}}
-    }
+    thumbnail{${mediaContent}},
   }
 `
